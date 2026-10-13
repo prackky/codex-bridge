@@ -1,0 +1,9 @@
+.git
+.env
+.env.*
+!.env.example
+.codex
+.codex-home
+**/auth.json
+node_modules
+*.log

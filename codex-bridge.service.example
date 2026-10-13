@@ -1,0 +1,19 @@
+[Unit]
+Description=Codex intranet HTTP bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Replace these paths. Install as a user service for the user who logged into Codex.
+WorkingDirectory=/absolute/path/to/codex-bridge
+EnvironmentFile=/absolute/path/to/codex-bridge/.env
+ExecStart=/usr/bin/node /absolute/path/to/codex-bridge/server.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=10
+KillMode=control-group
+UMask=0077
+
+[Install]
+WantedBy=default.target
